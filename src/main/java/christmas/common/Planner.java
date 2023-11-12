@@ -1,4 +1,4 @@
-package christmas.controller;
+package christmas.common;
 
 public interface Planner {
     void start();

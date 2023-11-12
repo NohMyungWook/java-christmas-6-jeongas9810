@@ -1,7 +1,7 @@
 package christmas;
 
-import christmas.controller.EventPlanner;
-import christmas.controller.Planner;
+import christmas.common.EventPlanner;
+import christmas.common.Planner;
 
 public class Application {
     public static void main(String[] args) {

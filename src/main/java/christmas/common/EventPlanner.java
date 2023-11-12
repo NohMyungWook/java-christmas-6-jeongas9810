@@ -1,5 +1,6 @@
-package christmas.controller;
+package christmas.common;
 
+import christmas.controller.MenuController;
 import christmas.model.Menu;
 import java.util.List;
 
