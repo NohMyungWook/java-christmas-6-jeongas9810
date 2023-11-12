@@ -10,7 +10,6 @@ import java.util.List;
 public class OutputView {
     public void printWelcomeMsg() {
         ViewMessage.MSG_WELCOME.print();
-        ViewMessage.PRINT_LINE.print();
     }
 
     public void printIntro(int day) {
