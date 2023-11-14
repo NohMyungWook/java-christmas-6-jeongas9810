@@ -41,7 +41,7 @@ public enum MenuItems {
                 return menuItemToMenu(menuItem);
             }
         }
-        return menuItemToMenu(MenuItems.NONE);
+        throw new IllegalArgumentException();
     }
 
     public String getKoName() {
