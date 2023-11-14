@@ -1,14 +1,24 @@
 package christmas.common;
 
-import christmas.controller.MenuController;
-import christmas.model.Menu;
+import christmas.model.Receipt;
+import christmas.view.InputView;
+import christmas.view.OutputView;
+
 import java.util.List;
 
 public class EventPlanner implements Planner{
-    private MenuController menuController = new MenuController();
+    private OutputView outputView = new OutputView();
+    private InputView inputView = new InputView();
 
     @Override
     public void start() {
-        List<Menu> menuBoard = menuController.setMenuBoard();
+        reservation();
+    }
+
+    public void reservation() {
+        outputView.printWelcomeMsg();
+        int estimatedDay = inputView.readDate();
+        List<Receipt> receipts = inputView.readOrderMenu();
+        outputView.printIntro(estimatedDay);
     }
 }
