@@ -11,6 +11,10 @@ public class Menu {
         this.price = price;
     }
 
+    public MenuType getMenuType() {
+        return menuType;
+    }
+
     public String getKoName() {
         return koName;
     }

@@ -1,5 +1,6 @@
 package christmas.view;
 
+import christmas.model.MenuType;
 import christmas.model.Receipt;
 import christmas.view.constant.ErrorMessage;
 
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class InputValidator {
+    private static final Integer INIT_INT = 0;
     private static final Integer FIRST_DAY = 1;
     private static final Integer LAST_DAY = 31;
     private static final String BLANK = " ";
@@ -50,12 +52,25 @@ public class InputValidator {
     }
 
     public void validateReceipt(List<Receipt> receipts) {
-        int totalCount = 0;
+        int totalCount = INIT_INT, notDrinkCount = INIT_INT;
+
         for (Receipt receipt : receipts) {
             validateMenuExistInMenuBoard(receipt);
+            if (validateMenuType(receipt)) {
+                notDrinkCount ++;
+            }
             totalCount += receipt.getCount();
         }
+
+        if (notDrinkCount == INIT_INT) {
+            ErrorMessage.ERR_CANNOT_ORDER_ONLY_DRINK.print();
+            throw new IllegalArgumentException();
+        }
         validateTotalCount(totalCount);
+    }
+
+    private boolean validateMenuType(Receipt receipt) {
+        return receipt.getMenu().getMenuType() != MenuType.DRINK;
     }
 
     private void validateMenuExistInMenuBoard(Receipt receipt)  {

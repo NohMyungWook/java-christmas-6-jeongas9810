@@ -30,14 +30,16 @@ public class InputView {
     }
 
     public List<Receipt> readOrderMenu() {
+        boolean isValidated = false;
         List<Receipt> receipts = new ArrayList<>();
-        ViewMessage.ASK_ORDER.print();
 
-        while (receipts.isEmpty()) {
+        ViewMessage.ASK_ORDER.print();
+        while (!isValidated) {
             try {
                 String[] menuOrder = Console.readLine().trim().split(",");
                 receipts = validator.validateMenuOrder(menuOrder);
                 validator.validateReceipt(receipts);
+                isValidated = true;
             } catch (IllegalArgumentException e) {
                 ErrorMessage.ERR_INPUT_MENU.print();
             }
