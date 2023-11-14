@@ -43,4 +43,8 @@ public enum MenuItems {
         }
         return menuItemToMenu(MenuItems.NONE);
     }
+
+    public Integer getPrice() {
+        return price;
+    }
 }

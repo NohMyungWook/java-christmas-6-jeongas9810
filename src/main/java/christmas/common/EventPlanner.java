@@ -1,11 +1,8 @@
 package christmas.common;
 
 import christmas.model.Benefit;
-import christmas.model.Menu;
 import christmas.model.Order;
 import christmas.model.Receipt;
-import christmas.model.constant.EventType;
-import christmas.model.constant.MenuItems;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 
@@ -17,8 +14,6 @@ public class EventPlanner implements Planner{
 
     private final static Integer YEAR = 2023;
     private final static Integer MONTH = 12;
-    private final static Integer CAN_PARTICIPATE_AMOUNT = 100000;
-    private final static Integer GET_GIFT_AMOUNT = 120000;
 
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
@@ -28,6 +23,7 @@ public class EventPlanner implements Planner{
     public void start() {
         Order order = reservation();
         List<Benefit> benefits = checkCanParticipate(order);
+        benefits = setBenefits(order, benefits);
     }
 
     @Override
@@ -48,9 +44,20 @@ public class EventPlanner implements Planner{
         outputView.printOrderMenu(order.getReceipts());
         outputView.printAmountBeforeDiscount(amount);
 
-        if (amount < CAN_PARTICIPATE_AMOUNT) {
-            benefits.add(new Benefit(EventType.NONE));
-        }
+        benefits.add(calculator.canParticipateEvent(amount));
+        benefits.add(calculator.canGetGift(amount));
+
+        return benefits;
+    }
+
+    public List<Benefit> setBenefits(Order order, List<Benefit> benefits) {
+        LocalDate date = order.getDate();
+        int dayOfWeekNumber = date.getDayOfWeek().getValue();
+
+        benefits.add(calculator.getWeekNumber(order, dayOfWeekNumber));
+        benefits.add(calculator.getXMasDiscount(date.getDayOfMonth()));
+        benefits.add(calculator.getSpecialDiscount(date));
+
         return benefits;
     }
 }
