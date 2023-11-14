@@ -20,4 +20,8 @@ public class Menu {
     public String getKoName() {
         return koName;
     }
+
+    public int getPrice() {
+        return price;
+    }
 }
