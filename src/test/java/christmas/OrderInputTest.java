@@ -43,4 +43,11 @@ public class OrderInputTest {
         assertThatThrownBy(() -> validator.validateReceipt(validator.validateMenuOrder("티본스테이크-17,제로콜라-4".split(","))))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("음료만 주문할 경우 예외 발생")
+    @Test
+    void inputOrderIsNotOnlyDrink() {
+        assertThatThrownBy(() -> validator.validateReceipt(validator.validateMenuOrder("샴페인-1,레드와인-2,제로콜라-4".split(","))))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
