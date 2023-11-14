@@ -17,6 +17,10 @@ public class Benefit {
         return event;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#,###");

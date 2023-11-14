@@ -7,6 +7,7 @@ import christmas.model.constant.EventType;
 import christmas.model.constant.MenuItems;
 import christmas.model.constant.MenuType;
 import christmas.model.constant.SpecialDay;
+import christmas.view.constant.Badge;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -22,12 +23,26 @@ public class Calculator {
     private final static Integer FRI = 5;
     private final static Integer SAT = 6;
     private final static Integer FINISH_XMAS_DISCOUNT_DAY = 25;
+    private final static Integer STAR_AMOUNT = 5000;
+    private final static Integer TREE_AMOUNT = 10000;
+    private final static Integer SANTA_AMOUNT = 20000;
 
-    public int getTotalAmount(List<Receipt> receipts, List<Benefit> benefits) {
+
+    public Integer getTotalOrderAmount(List<Receipt> receipts) {
         int amount = INIT_INTEGER;
 
         for (Receipt receipt : receipts) {
             amount += (receipt.getCount() * receipt.getMenu().getPrice());
+        }
+
+        return amount;
+    }
+
+    public Integer getTotalDiscountAmount(List<Benefit> benefits) {
+        int amount = INIT_INTEGER;
+
+        for (Benefit benefit : benefits) {
+            amount += benefit.getPrice();
         }
 
         return amount;
@@ -70,5 +85,12 @@ public class Calculator {
             }
         }
         return new Benefit(EventType.SPECIAL, INIT_INTEGER);
+    }
+
+    public Badge getBadgeWithBenefitAmount(int amount) {
+        if (amount >= SANTA_AMOUNT) return Badge.SANTA;
+        if (amount >= TREE_AMOUNT) return Badge.TREE;
+        if (amount >= STAR_AMOUNT) return Badge.STAR;
+        return Badge.NONE;
     }
 }

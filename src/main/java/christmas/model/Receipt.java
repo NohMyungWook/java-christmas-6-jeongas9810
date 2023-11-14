@@ -8,7 +8,7 @@ public class Receipt {
     private final int count;
 
     public Receipt() {
-        this.menu = MenuItems.getMenuByName(MenuItems.NONE.getKoName());
+        this.menu = MenuItems.getMenuByName(MenuItems.CHAMPAGNE.getKoName());
         this.count = MENU_MIN_COUNT;
     }
     public Receipt(String koName, int count) {

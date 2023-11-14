@@ -27,15 +27,15 @@ public class EventPlanner implements Planner{
     public void start() {
         List<Benefit> benefits = new ArrayList<>();
         Order order = reservation();
-        int amount = calculator.getTotalAmount(order.getReceipts(), benefits);
-        benefits = checkCanParticipate(order);
+        int orderAmount = calculator.getTotalOrderAmount(order.getReceipts());
+        benefits = checkCanParticipate(order, orderAmount);
 
         if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.PARTICIPATE) {
             benefits = setBenefits(order, benefits);
-            printEvent(benefits, amount);
+            printEvent(benefits, orderAmount);
         }
         if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.NONE) {
-            printEvent(amount);
+            printEvent(orderAmount);
         }
     }
 
@@ -50,19 +50,19 @@ public class EventPlanner implements Planner{
     }
 
     @Override
-    public List<Benefit> checkCanParticipate(Order order) {
+    public List<Benefit> checkCanParticipate(Order order, int orderAmount) {
         List<Benefit> benefits = new ArrayList<>();
-        int amount = calculator.getTotalAmount(order.getReceipts(), benefits);
 
         outputView.printOrderMenu(order.getReceipts());
-        outputView.printAmountBeforeDiscount(amount);
+        outputView.printAmountBeforeDiscount(orderAmount);
 
-        benefits.add(calculator.canParticipateEvent(amount));
-        benefits.add(calculator.canGetGift(amount));
+        benefits.add(calculator.canParticipateEvent(orderAmount));
+        benefits.add(calculator.canGetGift(orderAmount));
 
         return benefits;
     }
 
+    @Override
     public List<Benefit> setBenefits(Order order, List<Benefit> benefits) {
         LocalDate date = order.getDate();
         int dayOfWeekNumber = date.getDayOfWeek().getValue();
@@ -74,10 +74,21 @@ public class EventPlanner implements Planner{
         return benefits;
     }
 
-    public void printEvent(List<Benefit> benefits, int amount) {
-        
+    @Override
+    public void printEvent(List<Benefit> benefits, int orderAmount) {
+        int benefitAmount = calculator.getTotalDiscountAmount(benefits);
+        Badge badge = calculator.getBadgeWithBenefitAmount(benefitAmount);
+        List<Receipt> receipts = List.of(new Receipt());
+
+        outputView.printGiftMenu(receipts);
+        outputView.printBenefit(benefits);
+        outputView.printBenefitAmount(benefitAmount);
+        outputView.printAmountAfterDiscount(orderAmount-benefitAmount);
+        outputView.printEventBadge(badge);
+
     }
 
+    @Override
     public void printEvent(int amount) {
         outputView.printGiftMenu(Collections.emptyList());
         outputView.printBenefit(Collections.emptyList());
