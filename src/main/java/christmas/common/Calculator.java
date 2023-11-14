@@ -15,7 +15,7 @@ import java.util.List;
 public class Calculator {
     private final static Integer INIT_INTEGER = 0;
     private final static Integer CHANGE_SIGN = -1;
-    private final static Integer CAN_PARTICIPATE_AMOUNT = 100000;
+    private final static Integer CAN_PARTICIPATE_AMOUNT = 10000;
     private final static Integer GET_GIFT_AMOUNT = 120000;
     private final static Integer XMAS_DISCOUNT = 1000;
     private final static Integer SPECIAL_DISCOUNT = 1000;
