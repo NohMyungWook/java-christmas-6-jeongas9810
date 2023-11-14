@@ -1,9 +1,13 @@
 package common;
 
+import christmas.model.Menu;
 import christmas.model.MenuType;
+
+import java.util.Objects;
 
 // DB없이 메뉴 등록을 위한 enum data
 public enum MenuItems {
+    NONE(MenuType.NONE, "none", 0),
     PINE_MUSHROOM_SOUP(MenuType.APPETIZER, "양송이수프", 6000),
     TAPAS(MenuType.APPETIZER, "타파스", 5500),
     CAESAR_SALAD(MenuType.APPETIZER, "시저샐러드", 8000),
@@ -28,15 +32,16 @@ public enum MenuItems {
         this.price = price;
     }
 
-    public MenuType getMenuType() {
-        return menuType;
+    private static Menu menuItemToMenu(MenuItems menuItem) {
+        return new Menu(menuItem.menuType, menuItem.koName, menuItem.price);
     }
 
-    public String getKoName() {
-        return koName;
-    }
-
-    public int getPrice() {
-        return price;
+    public static Menu getMenuByName(String koName) {
+        for (MenuItems menuItem : MenuItems.values()) {
+            if (Objects.equals(menuItem.koName, koName)) {
+                return menuItemToMenu(menuItem);
+            }
+        }
+        return menuItemToMenu(MenuItems.NONE);
     }
 }
