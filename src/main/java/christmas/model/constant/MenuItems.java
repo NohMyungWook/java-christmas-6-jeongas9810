@@ -6,7 +6,7 @@ import java.util.Objects;
 
 // DB없이 메뉴 등록을 위한 enum data
 public enum MenuItems {
-    NONE(MenuType.NONE, "none", 0),
+    NONE(MenuType.NONE, "없음", 0),
     PINE_MUSHROOM_SOUP(MenuType.APPETIZER, "양송이수프", 6000),
     TAPAS(MenuType.APPETIZER, "타파스", 5500),
     CAESAR_SALAD(MenuType.APPETIZER, "시저샐러드", 8000),
@@ -42,6 +42,10 @@ public enum MenuItems {
             }
         }
         return menuItemToMenu(MenuItems.NONE);
+    }
+
+    public String getKoName() {
+        return koName;
     }
 
     public Integer getPrice() {

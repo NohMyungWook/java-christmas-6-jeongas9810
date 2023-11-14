@@ -1,7 +1,7 @@
 package christmas.view.constant;
 
 public enum Badge {
-    STAR("별"), TREE("트리"), SANTA("산타");
+    NONE("없음"), STAR("별"), TREE("트리"), SANTA("산타");
 
     private final String badgeName;
 
