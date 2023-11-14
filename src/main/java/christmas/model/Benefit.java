@@ -13,6 +13,10 @@ public class Benefit {
         this.price = price;
     }
 
+    public EventType getEventType() {
+        return event;
+    }
+
     @Override
     public String toString() {
         DecimalFormat decimalFormat = new DecimalFormat("#,###");

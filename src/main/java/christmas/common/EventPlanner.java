@@ -3,15 +3,19 @@ package christmas.common;
 import christmas.model.Benefit;
 import christmas.model.Order;
 import christmas.model.Receipt;
+import christmas.model.constant.EventType;
 import christmas.view.InputView;
 import christmas.view.OutputView;
+import christmas.view.constant.Badge;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class EventPlanner implements Planner{
-
+    private final static Integer NONE = 0;
+    private final static Integer PARTICIPATE_IDX = 0;
     private final static Integer YEAR = 2023;
     private final static Integer MONTH = 12;
 
@@ -21,9 +25,18 @@ public class EventPlanner implements Planner{
 
     @Override
     public void start() {
+        List<Benefit> benefits = new ArrayList<>();
         Order order = reservation();
-        List<Benefit> benefits = checkCanParticipate(order);
-        benefits = setBenefits(order, benefits);
+        int amount = calculator.getTotalAmount(order.getReceipts(), benefits);
+        benefits = checkCanParticipate(order);
+
+        if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.PARTICIPATE) {
+            benefits = setBenefits(order, benefits);
+            printEvent(benefits, amount);
+        }
+        if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.NONE) {
+            printEvent(amount);
+        }
     }
 
     @Override
@@ -59,5 +72,17 @@ public class EventPlanner implements Planner{
         benefits.add(calculator.getSpecialDiscount(date));
 
         return benefits;
+    }
+
+    public void printEvent(List<Benefit> benefits, int amount) {
+        
+    }
+
+    public void printEvent(int amount) {
+        outputView.printGiftMenu(Collections.emptyList());
+        outputView.printBenefit(Collections.emptyList());
+        outputView.printBenefitAmount(NONE);
+        outputView.printAmountAfterDiscount(amount);
+        outputView.printEventBadge(Badge.NONE);
     }
 }

@@ -30,12 +30,23 @@ public class OutputView {
 
     public void printGiftMenu(List<Receipt> receipt) {
         ViewMessage.MSG_GIFT_MENU.print();
+        if (receipt.isEmpty()) {
+            ViewMessage.MSG_NONE.print();
+            ViewMessage.PRINT_LINE.print();
+            return;
+        }
         printReceipt(receipt);
         ViewMessage.PRINT_LINE.print();
     }
 
     public void printBenefit(List<Benefit> benefits) {
         ViewMessage.MSG_BENEFITS.print();
+        if (benefits.isEmpty()) {
+            ViewMessage.MSG_NONE.print();
+            ViewMessage.PRINT_LINE.print();
+            return;
+        }
+
         for (Benefit benefit : benefits) {
             ViewMessage.PRINT_MSG.renderAndPrint(benefit.toString());
         }
