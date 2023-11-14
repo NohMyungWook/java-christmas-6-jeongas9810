@@ -14,14 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EventPlanner implements Planner{
-    private final OutputView outputView = new OutputView();
-    private final InputView inputView = new InputView();
-    private final Calculator calculator = new Calculator();
 
     private final static Integer YEAR = 2023;
     private final static Integer MONTH = 12;
     private final static Integer CAN_PARTICIPATE_AMOUNT = 100000;
     private final static Integer GET_GIFT_AMOUNT = 120000;
+
+    private final OutputView outputView = new OutputView();
+    private final InputView inputView = new InputView();
+    private final Calculator calculator = new Calculator();
 
     @Override
     public void start() {
