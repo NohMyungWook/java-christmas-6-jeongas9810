@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
+    private final static String COMMA = ",";
     private final InputValidator validator = new InputValidator();
 
     public int readDate() {
@@ -34,7 +35,7 @@ public class InputView {
         ViewMessage.ASK_ORDER.print();
         while (!isValidated) {
             try {
-                String[] menuOrder = Console.readLine().trim().split(",");
+                String[] menuOrder = Console.readLine().trim().split(COMMA);
                 receipts = validator.validateMenuOrder(menuOrder);
                 validator.validateReceipt(receipts);
                 isValidated = true;

@@ -32,7 +32,7 @@ public class Calculator {
         int amount = INIT_INTEGER;
 
         for (Receipt receipt : receipts) {
-            amount += (receipt.getCount() * receipt.getMenu().getPrice());
+            amount += (receipt.getCount() * receipt.getMenu().price());
         }
 
         return amount;

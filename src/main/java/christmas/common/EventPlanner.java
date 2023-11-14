@@ -25,9 +25,9 @@ public class EventPlanner implements Planner{
 
     @Override
     public void start() {
-        List<Benefit> benefits = new ArrayList<>();
+        List<Benefit> benefits;
         Order order = reservation();
-        int orderAmount = calculator.getTotalOrderAmount(order.getReceipts());
+        int orderAmount = calculator.getTotalOrderAmount(order.receipts());
         benefits = checkCanParticipate(order, orderAmount);
 
         if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.PARTICIPATE) {
@@ -53,7 +53,7 @@ public class EventPlanner implements Planner{
     public List<Benefit> checkCanParticipate(Order order, int orderAmount) {
         List<Benefit> benefits = new ArrayList<>();
 
-        outputView.printOrderMenu(order.getReceipts());
+        outputView.printOrderMenu(order.receipts());
         outputView.printAmountBeforeDiscount(orderAmount);
 
         benefits.add(calculator.canParticipateEvent(orderAmount));
@@ -64,7 +64,7 @@ public class EventPlanner implements Planner{
 
     @Override
     public List<Benefit> setBenefits(Order order, List<Benefit> benefits) {
-        LocalDate date = order.getDate();
+        LocalDate date = order.date();
         int dayOfWeekNumber = date.getDayOfWeek().getValue();
 
         benefits.add(calculator.getWeekNumber(order, dayOfWeekNumber));

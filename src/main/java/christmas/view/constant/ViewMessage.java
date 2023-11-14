@@ -40,8 +40,4 @@ public enum ViewMessage {
     public void renderAndPrint(int d) {
         System.out.printf(message, d);
     }
-
-    public void renderAndPrint(String s, int d) {
-        System.out.printf(message, s, d);
-    }
 }

@@ -33,6 +33,6 @@ public class Receipt {
 
     @Override
     public String toString() {
-        return menu.getKoName() + " " + count + "개";
+        return menu.koName() + " " + count + "개";
     }
 }
