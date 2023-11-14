@@ -1,6 +1,7 @@
 package christmas.view;
 
 import camp.nextstep.edu.missionutils.Console;
+import christmas.model.Receipt;
 import christmas.view.constant.ErrorMessage;
 import christmas.view.constant.ViewMessage;
 
@@ -13,7 +14,8 @@ public class InputView {
     public int readDate() {
         ViewMessage.ASK_DATE.print();
         int day = 0;
-        while(day == 0) {
+
+        while (day == 0) {
             try {
                 day = Integer.parseInt(Console.readLine().trim());
                 validator.validateDay(day);
@@ -25,5 +27,21 @@ public class InputView {
             }
         }
         return day;
+    }
+
+    public List<Receipt> readOrderMenu() {
+        List<Receipt> receipts = new ArrayList<>();
+        ViewMessage.ASK_ORDER.print();
+
+        while (receipts.isEmpty()) {
+            try {
+                String[] menuOrder = Console.readLine().trim().split(",");
+                receipts = validator.validateMenuOrder(menuOrder);
+                validator.validateReceipt(receipts);
+            } catch (IllegalArgumentException e) {
+                ErrorMessage.ERR_INPUT_MENU.print();
+            }
+        }
+        return receipts;
     }
 }
