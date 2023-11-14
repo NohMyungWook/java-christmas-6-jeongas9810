@@ -1,5 +1,7 @@
 package christmas.model;
 
+import christmas.model.constant.EventType;
+
 import java.text.DecimalFormat;
 
 public class Benefit {

@@ -1,7 +1,7 @@
 package common;
 
 import christmas.model.Menu;
-import christmas.model.MenuType;
+import christmas.model.constant.MenuType;
 
 import java.util.Objects;
 

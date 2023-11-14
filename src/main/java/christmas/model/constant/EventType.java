@@ -1,4 +1,4 @@
-package christmas.model;
+package christmas.model.constant;
 
 public enum EventType {
     CHRISTMAS("크리스마스 디데이 할인"),

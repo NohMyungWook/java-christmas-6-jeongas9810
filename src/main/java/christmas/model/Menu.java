@@ -1,5 +1,7 @@
 package christmas.model;
 
+import christmas.model.constant.MenuType;
+
 public class Menu {
     private final MenuType menuType;
     private final String koName;

@@ -1,6 +1,6 @@
 package christmas.view;
 
-import christmas.model.MenuType;
+import christmas.model.constant.MenuType;
 import christmas.model.Receipt;
 import christmas.view.constant.ErrorMessage;
 
