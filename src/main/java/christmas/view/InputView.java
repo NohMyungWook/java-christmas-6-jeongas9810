@@ -19,8 +19,6 @@ public class InputView {
             try {
                 day = Integer.parseInt(Console.readLine().trim());
                 validator.validateDay(day);
-            } catch (NumberFormatException e) {
-                ErrorMessage.ERR_INPUT_NUMBER.print();
             } catch (IllegalArgumentException e) {
                 ErrorMessage.ERR_INPUT_DATE.print();
                 day = 0;
