@@ -1,7 +1,7 @@
 package christmas.view;
 
-import christmas.model.Menu;
 import christmas.model.Receipt;
+import christmas.view.constant.ErrorMessage;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +66,7 @@ public class InputValidator {
 
     private void validateTotalCount(int totalCount) {
         if (totalCount > MAX_MENU_COUNT) {
+            ErrorMessage.ERR_MAX_MENU_COUNT.print();
             throw new IllegalArgumentException();
         }
     }
