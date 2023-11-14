@@ -7,12 +7,6 @@ public class Receipt {
     private final Menu menu;
     private final int count;
 
-    public Receipt(Menu menu, int count) {
-        validateCount(count);
-        this.menu = menu;
-        this.count = count;
-    }
-
     public Receipt(String koName, int count) {
         validateCount(count);
         this.menu = MenuItems.getMenuByName(koName);
