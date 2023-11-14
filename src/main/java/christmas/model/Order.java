@@ -11,7 +11,7 @@ public record Order(LocalDate date, List<Receipt> receipts) {
         int cnt = 0;
         for (Receipt receipt : receipts) {
             if (receipt.getMenu().menuType() == menuType) {
-                cnt++;
+                cnt+= receipt.getCount();
             }
         }
         return cnt;
