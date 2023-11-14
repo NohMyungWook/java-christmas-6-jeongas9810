@@ -1,6 +1,6 @@
 package christmas.model;
 
-import common.MenuItems;
+import christmas.model.constant.MenuItems;
 
 public class Receipt {
     private final int MENU_MIN_COUNT = 1;
