@@ -65,9 +65,8 @@ public class EventPlanner implements Planner{
     @Override
     public List<Benefit> setBenefits(Order order, List<Benefit> benefits) {
         LocalDate date = order.date();
-        int dayOfWeekNumber = date.getDayOfWeek().getValue();
 
-        benefits.add(calculator.getWeekNumber(order, dayOfWeekNumber));
+        benefits.add(calculator.getWeekNumber(order));
         benefits.add(calculator.getXMasDiscount(date.getDayOfMonth()));
         benefits.add(calculator.getSpecialDiscount(date));
 

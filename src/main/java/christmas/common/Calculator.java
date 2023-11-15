@@ -62,7 +62,9 @@ public class Calculator {
         return new Benefit(EventType.GIFT, INIT_INTEGER);
     }
 
-    public Benefit getWeekNumber(Order order, int dayOfWeekNumber) {
+    public Benefit getWeekNumber(Order order) {
+        int dayOfWeekNumber = order.date().getDayOfWeek().getValue();
+
         if(dayOfWeekNumber == FRI || dayOfWeekNumber == SAT) {
             return new Benefit(EventType.WEEKEND, order.getMenuTypeCnt(MenuType.MAIN) * MENU_DISCOUNT * CHANGE_SIGN);
         }
@@ -73,7 +75,7 @@ public class Calculator {
         if (dayOfMonth > FINISH_XMAS_DISCOUNT_DAY) {
             return new Benefit(EventType.CHRISTMAS, INIT_INTEGER);
         }
-        return new Benefit(EventType.CHRISTMAS, (dayOfMonth * 100 + XMAS_DISCOUNT) * CHANGE_SIGN);
+        return new Benefit(EventType.CHRISTMAS, ((dayOfMonth-1) * 100 + XMAS_DISCOUNT) * CHANGE_SIGN);
     }
 
     public Benefit getSpecialDiscount(LocalDate date) {
