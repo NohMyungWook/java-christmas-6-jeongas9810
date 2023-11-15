@@ -9,20 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
+    private final static Integer INIT_INT = 0;
     private final static String COMMA = ",";
     private final InputValidator validator = new InputValidator();
 
     public int readDate() {
         ViewMessage.ASK_DATE.print();
-        int day = 0;
+        int day = INIT_INT;
 
-        while (day == 0) {
+        while (day == INIT_INT) {
             try {
                 day = Integer.parseInt(Console.readLine().trim());
                 validator.validateDay(day);
             } catch (IllegalArgumentException e) {
                 ErrorMessage.ERR_INPUT_DATE.print();
-                day = 0;
+                day = INIT_INT;
             }
         }
         return day;

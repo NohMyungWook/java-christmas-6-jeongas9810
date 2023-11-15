@@ -23,10 +23,6 @@ public class Calculator {
     private final static Integer FRI = 5;
     private final static Integer SAT = 6;
     private final static Integer FINISH_XMAS_DISCOUNT_DAY = 25;
-    private final static Integer STAR_AMOUNT = 5000;
-    private final static Integer TREE_AMOUNT = 10000;
-    private final static Integer SANTA_AMOUNT = 20000;
-
 
     public Integer getTotalOrderAmount(List<Receipt> receipts) {
         int amount = INIT_INTEGER;
@@ -90,9 +86,9 @@ public class Calculator {
     }
 
     public Badge getBadgeWithBenefitAmount(int amount) {
-        if (amount >= SANTA_AMOUNT) return Badge.SANTA;
-        if (amount >= TREE_AMOUNT) return Badge.TREE;
-        if (amount >= STAR_AMOUNT) return Badge.STAR;
+        if (amount >= Badge.SANTA.getPrice()) return Badge.SANTA;
+        if (amount >= Badge.TREE.getPrice()) return Badge.TREE;
+        if (amount >= Badge.STAR.getPrice()) return Badge.STAR;
         return Badge.NONE;
     }
 }

@@ -10,7 +10,9 @@ public interface Planner {
 
     Order reservation();
 
-    List<Benefit> checkCanParticipate(Order order, int orderAmount);
+    void printOrderMenuAndAmount(Order order, int orderAmount);
+
+    List<Benefit> makeBenefits(Order order, int orderAmount);
 
     List<Benefit> setBenefits(Order order, List<Benefit> benefits);
 

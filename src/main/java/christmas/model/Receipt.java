@@ -7,6 +7,7 @@ public class Receipt {
     private final Menu menu;
     private final int count;
 
+    // gift menu 등록을 위한 생성자. 추후 증정 메뉴 변경 시 MenuItems 뒤 상수만 바꾸면 됨.
     public Receipt() {
         this.menu = MenuItems.getMenuByName(MenuItems.CHAMPAGNE.getKoName());
         this.count = MENU_MIN_COUNT;
