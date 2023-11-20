@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class EventPlanner implements Planner{
+public class EventPlanner{
     private final static Integer NONE = 0;
     private final static Integer PARTICIPATE_IDX = 0;
     private final static Integer YEAR = 2023;
@@ -23,7 +23,6 @@ public class EventPlanner implements Planner{
     private final InputView inputView = new InputView();
     private final Calculator calculator = new Calculator();
 
-    @Override
     public void start() {
         Order order = reservation();
         int orderAmount = calculator.getTotalOrderAmount(order.receipts());
@@ -37,7 +36,6 @@ public class EventPlanner implements Planner{
         printEvent(orderAmount);
     }
 
-    @Override
     public Order reservation() {
         outputView.printWelcomeMsg();
         int estimatedDay = inputView.readDate();
@@ -46,13 +44,11 @@ public class EventPlanner implements Planner{
         return new Order(LocalDate.of(YEAR, MONTH, estimatedDay), receipts);
     }
 
-    @Override
     public void printOrderMenuAndAmount(Order order, int orderAmount) {
         outputView.printOrderMenu(order.receipts());
         outputView.printAmountBeforeDiscount(orderAmount);
     }
 
-    @Override
     public List<Benefit> makeBenefits(Order order, int orderAmount) {
         List<Benefit> benefits = new ArrayList<>();
 
@@ -65,7 +61,6 @@ public class EventPlanner implements Planner{
         return benefits;
     }
 
-    @Override
     public List<Benefit> setBenefits(Order order, List<Benefit> benefits) {
         LocalDate date = order.date();
 
@@ -76,7 +71,6 @@ public class EventPlanner implements Planner{
         return benefits;
     }
 
-    @Override
     public void printEvent(List<Benefit> benefits, int orderAmount) {
         int benefitAmount = calculator.getTotalDiscountAmount(benefits);
         Badge badge = calculator.getBadgeWithBenefitAmount(benefitAmount);
@@ -89,8 +83,7 @@ public class EventPlanner implements Planner{
         outputView.printEventBadge(badge);
 
     }
-
-    @Override
+    
     public void printEvent(int amount) {
         outputView.printGiftMenu(Collections.emptyList());
         outputView.printBenefit(Collections.emptyList());
