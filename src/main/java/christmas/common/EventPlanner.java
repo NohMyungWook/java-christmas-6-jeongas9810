@@ -83,7 +83,7 @@ public class EventPlanner{
         outputView.printEventBadge(badge);
 
     }
-    
+
     public void printEvent(int amount) {
         outputView.printGiftMenu(Collections.emptyList());
         outputView.printBenefit(Collections.emptyList());
