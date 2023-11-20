@@ -73,7 +73,8 @@ public class OutputView {
 
     private void printReceipt(List<Receipt> receipts) {
         for (Receipt receipt : receipts) {
-            ViewMessage.PRINT_MESSAGE.renderAndPrint(receipt.toString());
+            ViewMessage.RECEIPT.renderAndPrint(receipt.getKoName(), receipt.getCount());
+            ViewMessage.PRINT_LINE.print();
         }
     }
 

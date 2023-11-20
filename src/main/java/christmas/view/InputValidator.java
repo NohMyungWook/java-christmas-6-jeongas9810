@@ -70,11 +70,11 @@ public class InputValidator {
     }
 
     private boolean validateMenuType(Receipt receipt) {
-        return receipt.getMenu().menuType() != MenuType.DRINK;
+        return receipt.getMenuType() != MenuType.DRINK;
     }
 
     private void validateMenuExistInMenuBoard(Receipt receipt)  {
-        if (Objects.equals(receipt.getMenu().koName(), NONE)) {
+        if (Objects.equals(receipt.getKoName(), NONE)) {
             throw new IllegalArgumentException();
         }
     }

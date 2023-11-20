@@ -1,6 +1,7 @@
 package christmas.model;
 
 import christmas.model.constant.MenuItems;
+import christmas.model.constant.MenuType;
 
 public class Receipt {
     private static final int MENU_MIN_COUNT = 1;
@@ -28,16 +29,15 @@ public class Receipt {
         return menu.price() * count;
     }
 
-    public Menu getMenu() {
-        return menu;
+    public MenuType getMenuType() {
+        return menu.menuType();
+    }
+
+    public String getKoName() {
+        return menu.koName();
     }
 
     public int getCount() {
         return count;
-    }
-
-    @Override
-    public String toString() {
-        return menu.koName() + " " + count + "개";
     }
 }

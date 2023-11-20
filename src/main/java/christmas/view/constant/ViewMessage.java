@@ -12,6 +12,7 @@ public enum ViewMessage {
     AMOUNT_AFTER_DISCOUNT("<할인 후 예상 결제 금액>\n"),
     BADGE("<12월 이벤트 배지>\n"),
     BENEFIT("%s: %,d원"),
+    RECEIPT("%s %d개"),
     AMOUNT("%,d원\n"),
     NONE("없음\n"),
 
