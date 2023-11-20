@@ -2,6 +2,7 @@ package christmas.view;
 
 import christmas.model.Benefit;
 import christmas.model.Receipt;
+import christmas.model.constant.EventType;
 import christmas.view.constant.Badge;
 import christmas.view.constant.ViewMessage;
 
@@ -48,6 +49,7 @@ public class OutputView {
         }
 
         for (Benefit benefit : benefits) {
+            if(benefit.getEventType() == EventType.PARTICIPATE) continue;
             ViewMessage.PRINT_MESSAGE.renderAndPrint(benefit.toString());
         }
         ViewMessage.PRINT_LINE.print();

@@ -56,7 +56,7 @@ public class EventPlanner{
         benefits.add(calculator.canGetGift(orderAmount));
 
         if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.PARTICIPATE) {
-            benefits.addAll(setBenefits(order, benefits));
+            setBenefits(order, benefits);
         }
         return benefits;
     }

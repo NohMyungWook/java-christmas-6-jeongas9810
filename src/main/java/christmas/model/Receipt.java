@@ -28,6 +28,14 @@ public class Receipt {
         return menu.price() * count;
     }
 
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
     @Override
     public String toString() {
         return menu.koName() + " " + count + "개";
