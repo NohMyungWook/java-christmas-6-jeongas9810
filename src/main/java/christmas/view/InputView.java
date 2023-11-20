@@ -22,7 +22,7 @@ public class InputView {
                 day = Integer.parseInt(Console.readLine().trim());
                 validator.validateDay(day);
             } catch (IllegalArgumentException e) {
-                ErrorMessage.ERR_INPUT_DATE.print();
+                ErrorMessage.INPUT_DATE.print();
                 day = INIT_INT;
             }
         }
@@ -41,7 +41,7 @@ public class InputView {
                 validator.validateReceipt(receipts);
                 isValidated = true;
             } catch (IllegalArgumentException e) {
-                ErrorMessage.ERR_INPUT_MENU.print();
+                ErrorMessage.INPUT_MENU.print();
             }
         }
         return receipts;

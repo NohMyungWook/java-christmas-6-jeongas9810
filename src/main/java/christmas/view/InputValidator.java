@@ -63,7 +63,7 @@ public class InputValidator {
         }
 
         if (notDrinkCount == INIT_INT) {
-            ErrorMessage.ERR_CANNOT_ORDER_ONLY_DRINK.print();
+            ErrorMessage.CANNOT_ORDER_ONLY_DRINK.print();
             throw new IllegalArgumentException();
         }
         validateTotalCount(totalCount);
@@ -81,7 +81,7 @@ public class InputValidator {
 
     private void validateTotalCount(int totalCount) {
         if (totalCount > MAX_MENU_COUNT) {
-            ErrorMessage.ERR_MAX_MENU_COUNT.print();
+            ErrorMessage.MAX_MENU_COUNT.print();
             throw new IllegalArgumentException();
         }
     }
