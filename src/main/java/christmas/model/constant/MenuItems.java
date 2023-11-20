@@ -23,7 +23,7 @@ public enum MenuItems {
 
     private final MenuType menuType;
     private final String koName;
-    private final Integer price;
+    private final int price;
 
     MenuItems(MenuType menuType, String koName, int price) {
         this.menuType = menuType;
@@ -48,7 +48,7 @@ public enum MenuItems {
         return koName;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 }

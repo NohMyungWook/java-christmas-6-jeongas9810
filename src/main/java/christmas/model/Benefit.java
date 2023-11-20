@@ -17,7 +17,7 @@ public class Benefit {
         return event;
     }
 
-    public Integer getPrice() {
+    public int getPrice() {
         return price;
     }
 

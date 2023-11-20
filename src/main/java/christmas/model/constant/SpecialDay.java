@@ -9,7 +9,7 @@ public enum SpecialDay {
         this.day = day;
     }
 
-    public Integer getDay() {
+    public int getDay() {
         return day;
     }
 }

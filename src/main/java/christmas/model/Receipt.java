@@ -28,7 +28,7 @@ public class Receipt {
         return menu;
     }
 
-    public Integer getCount() {
+    public int getCount() {
         return count;
     }
 

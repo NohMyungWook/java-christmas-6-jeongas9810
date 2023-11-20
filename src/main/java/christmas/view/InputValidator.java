@@ -9,16 +9,16 @@ import java.util.List;
 import java.util.Objects;
 
 public class InputValidator {
-    private static final Integer INIT_INT = 0;
-    private static final Integer FIRST_DAY = 1;
-    private static final Integer LAST_DAY = 31;
+    private static final int INIT_INT = 0;
+    private static final int FIRST_DAY = 1;
+    private static final int LAST_DAY = 31;
     private static final String BLANK = " ";
     private static final String SEPARATOR = "-";
     private static final String REGEX_MENU_AND_COUNT = "^[가-힣]+-[0-9]+$";
-    private static final Integer KOR_NAME_IDX = 0;
-    private static final Integer COUNT_IDX = 1;
+    private static final int KOR_NAME_IDX = 0;
+    private static final int COUNT_IDX = 1;
     private static final String NONE = "none";
-    private static final Integer MAX_MENU_COUNT = 20;
+    private static final int MAX_MENU_COUNT = 20;
 
     public void validateDay(int day) {
         if (day < FIRST_DAY || day > LAST_DAY) {

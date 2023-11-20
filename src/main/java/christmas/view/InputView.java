@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
-    private final static Integer INIT_INT = 0;
+    private final static int INIT_INT = 0;
     private final static String COMMA = ",";
     private final InputValidator validator = new InputValidator();
 

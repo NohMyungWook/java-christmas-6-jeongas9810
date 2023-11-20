@@ -13,18 +13,18 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class Calculator {
-    private final static Integer INIT_INTEGER = 0;
-    private final static Integer CHANGE_SIGN = -1;
-    private final static Integer CAN_PARTICIPATE_AMOUNT = 10000;
-    private final static Integer GET_GIFT_AMOUNT = 120000;
-    private final static Integer XMAS_DISCOUNT = 1000;
-    private final static Integer SPECIAL_DISCOUNT = 1000;
-    private final static Integer MENU_DISCOUNT = 2023;
-    private final static Integer FRI = 5;
-    private final static Integer SAT = 6;
-    private final static Integer FINISH_XMAS_DISCOUNT_DAY = 25;
+    private final static int INIT_INTEGER = 0;
+    private final static int CHANGE_SIGN = -1;
+    private final static int CAN_PARTICIPATE_AMOUNT = 10000;
+    private final static int GET_GIFT_AMOUNT = 120000;
+    private final static int XMAS_DISCOUNT = 1000;
+    private final static int SPECIAL_DISCOUNT = 1000;
+    private final static int MENU_DISCOUNT = 2023;
+    private final static int FRI = 5;
+    private final static int SAT = 6;
+    private final static int FINISH_XMAS_DISCOUNT_DAY = 25;
 
-    public Integer getTotalOrderAmount(List<Receipt> receipts) {
+    public int getTotalOrderAmount(List<Receipt> receipts) {
         int amount = INIT_INTEGER;
 
         for (Receipt receipt : receipts) {
@@ -34,7 +34,7 @@ public class Calculator {
         return amount;
     }
 
-    public Integer getTotalDiscountAmount(List<Benefit> benefits) {
+    public int getTotalDiscountAmount(List<Benefit> benefits) {
         int amount = INIT_INTEGER;
 
         for (Benefit benefit : benefits) {

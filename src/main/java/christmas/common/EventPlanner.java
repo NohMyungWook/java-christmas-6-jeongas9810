@@ -14,10 +14,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class EventPlanner{
-    private final static Integer NONE = 0;
-    private final static Integer PARTICIPATE_IDX = 0;
-    private final static Integer YEAR = 2023;
-    private final static Integer MONTH = 12;
+    private final static int NONE = 0;
+    private final static int PARTICIPATE_IDX = 0;
+    private final static int YEAR = 2023;
+    private final static int MONTH = 12;
 
     private final OutputView outputView = new OutputView();
     private final InputView inputView = new InputView();
