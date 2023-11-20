@@ -24,7 +24,7 @@ public class EventPlanner{
     private final Calculator calculator = new Calculator();
 
     public void start() {
-        Order order = reservation();
+        Order order = makeOrder();
         int orderAmount = calculator.getTotalOrderAmount(order.receipts());
         printOrderMenuAndAmount(order, orderAmount);
         List<Benefit> benefits = makeBenefits(order, orderAmount);
@@ -36,7 +36,7 @@ public class EventPlanner{
         printEvent(orderAmount);
     }
 
-    public Order reservation() {
+    public Order makeOrder() {
         outputView.printWelcomeMsg();
         int estimatedDay = inputView.readDate();
         List<Receipt> receipts = inputView.readOrderMenu();
@@ -56,7 +56,7 @@ public class EventPlanner{
         benefits.add(calculator.canGetGift(orderAmount));
 
         if (benefits.get(PARTICIPATE_IDX).getEventType() == EventType.PARTICIPATE) {
-            setBenefits(order, benefits);
+            benefits.addAll(setBenefits(order, benefits));
         }
         return benefits;
     }

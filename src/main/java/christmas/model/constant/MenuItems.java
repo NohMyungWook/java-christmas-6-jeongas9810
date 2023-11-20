@@ -31,14 +31,14 @@ public enum MenuItems {
         this.price = price;
     }
 
-    private static Menu menuItemToMenu(MenuItems menuItem) {
+    private static Menu makeMenuItemToMenu(MenuItems menuItem) {
         return new Menu(menuItem.menuType, menuItem.koName, menuItem.price);
     }
 
     public static Menu getMenuByName(String koName) {
         for (MenuItems menuItem : MenuItems.values()) {
             if (Objects.equals(menuItem.koName, koName)) {
-                return menuItemToMenu(menuItem);
+                return makeMenuItemToMenu(menuItem);
             }
         }
         throw new IllegalArgumentException();
