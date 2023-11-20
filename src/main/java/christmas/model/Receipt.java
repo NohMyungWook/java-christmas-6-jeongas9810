@@ -24,12 +24,8 @@ public class Receipt {
         }
     }
 
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public int getCount() {
-        return count;
+    public int getAmount() {
+        return menu.price() * count;
     }
 
     @Override
