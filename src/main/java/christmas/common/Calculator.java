@@ -25,23 +25,11 @@ public class Calculator {
     private final static int FINISH_XMAS_DISCOUNT_DAY = 25;
 
     public int getTotalOrderAmount(List<Receipt> receipts) {
-        int amount = INIT_INTEGER;
-
-        for (Receipt receipt : receipts) {
-            amount += receipt.getAmount();
-        }
-
-        return amount;
+        return receipts.stream().mapToInt(Receipt::getAmount).sum();
     }
 
     public int getTotalDiscountAmount(List<Benefit> benefits) {
-        int amount = INIT_INTEGER;
-
-        for (Benefit benefit : benefits) {
-            amount += benefit.getPrice();
-        }
-
-        return amount;
+        return benefits.stream().mapToInt(Benefit::getPrice).sum();
     }
 
     public Benefit canParticipateEvent(int amount) {
