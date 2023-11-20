@@ -20,10 +20,4 @@ public class Benefit {
     public int getPrice() {
         return price;
     }
-
-    @Override
-    public String toString() {
-        DecimalFormat decimalFormat = new DecimalFormat("#,###");
-        return event.toString() + ": " + decimalFormat.format(price) + "원";
-    }
 }

@@ -79,7 +79,7 @@ public class EventPlanner{
         outputView.printGiftMenu(giftReceipt);
         outputView.printBenefit(benefits);
         outputView.printBenefitAmount(benefitAmount);
-        outputView.printAmountAfterDiscount(orderAmount-benefitAmount);
+        outputView.printAmountAfterDiscount(orderAmount+benefitAmount);
         outputView.printEventBadge(badge);
 
     }

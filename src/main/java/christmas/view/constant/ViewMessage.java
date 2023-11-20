@@ -11,6 +11,7 @@ public enum ViewMessage {
     BENFIT_AMOUNT("<총혜택 금액>\n"),
     AMOUNT_AFTER_DISCOUNT("<할인 후 예상 결제 금액>\n"),
     BADGE("<12월 이벤트 배지>\n"),
+    BENEFIT("%s: %,d원"),
     AMOUNT("%,d원\n"),
     NONE("없음\n"),
 
@@ -39,5 +40,9 @@ public enum ViewMessage {
 
     public void renderAndPrint(int d) {
         System.out.printf(message, d);
+    }
+
+    public void renderAndPrint(String s, int d) {
+        System.out.printf(message, s, d);
     }
 }
