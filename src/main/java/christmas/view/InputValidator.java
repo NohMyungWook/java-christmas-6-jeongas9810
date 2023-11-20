@@ -7,6 +7,7 @@ import christmas.view.constant.ErrorMessage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.regex.Pattern;
 
 public class InputValidator {
     private static final int INIT_INT = 0;
@@ -46,9 +47,8 @@ public class InputValidator {
     }
 
     private void validateInputFormat(String menuItem) {
-        if (!menuItem.matches(REGEX_MENU_AND_COUNT)) {
+        if(!Pattern.matches(REGEX_MENU_AND_COUNT, menuItem))
             throw new IllegalArgumentException();
-        }
     }
 
     public void validateReceipt(List<Receipt> receipts) {
