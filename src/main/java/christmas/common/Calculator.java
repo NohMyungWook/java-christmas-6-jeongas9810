@@ -29,7 +29,7 @@ public class Calculator {
     }
 
     public int getTotalDiscountAmount(List<Benefit> benefits) {
-        return benefits.stream().mapToInt(Benefit::getPrice).sum();
+        return benefits.stream().mapToInt(Benefit::getDiscountAmount).sum();
     }
 
     public Benefit canParticipateEvent(int amount) {

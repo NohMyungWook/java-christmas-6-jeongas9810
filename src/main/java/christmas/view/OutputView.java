@@ -50,7 +50,7 @@ public class OutputView {
 
         for (Benefit benefit : benefits) {
             if(benefit.getEventType() == EventType.PARTICIPATE) continue;
-            ViewMessage.BENEFIT.renderAndPrint(benefit.getEventType().toString(), benefit.getPrice());
+            ViewMessage.BENEFIT.renderAndPrint(benefit.getEventType().toString(), benefit.getDiscountAmount());
             ViewMessage.PRINT_LINE.print();
         }
         ViewMessage.PRINT_LINE.print();

@@ -45,40 +45,40 @@ public class CalculateTest {
     @Test
     void canParticipateEvent() {
         // 1000원 구매 시, 이벤트 Benefit 객체의 price가 0인가에 대한 코드
-        assertEquals(calculator.canParticipateEvent(1000).getPrice(), 0);
+        assertEquals(calculator.canParticipateEvent(1000).getDiscountAmount(), 0);
     }
 
     @DisplayName("총 구매금액이 120000원 이상일 경우 증정품 지급")
     @Test
     void canGetGift() {
         // 12000원 구매 시, 받는 Benefit의 price가 0이 아닌지에 대한 코드
-        assertNotEquals(calculator.canGetGift(120000).getPrice(), 0);
+        assertNotEquals(calculator.canGetGift(120000).getDiscountAmount(), 0);
     }
 
     @DisplayName("주말일 경우 main메뉴 개수 * 2023원 할인")
     @Test
     void weekendTest() {
-        assertEquals(calculator.getWeekNumber(weekendOrder).getPrice(), 5 * 2023 * -1);
+        assertEquals(calculator.getWeekNumber(weekendOrder).getDiscountAmount(), 5 * 2023 * -1);
     }
 
     @DisplayName("주중일 경우 dessert메뉴 개수 * 2023원 할인")
     @Test
     void weekdayTest() {
-        assertEquals(calculator.getWeekNumber(weekdayOrder).getPrice(), 4 * 2023 * -1);
+        assertEquals(calculator.getWeekNumber(weekdayOrder).getDiscountAmount(), 4 * 2023 * -1);
     }
 
     @DisplayName("해당 날짜에 대한 크리스마스 디데이 이벤트 할인가 리턴")
     @ParameterizedTest
     @CsvSource(value = {"2:-1100", "3:-1200", "20:-2900", "25:-3400", "31:0"}, delimiter = ':')
     void getXMasDiscount(String input, String expected) {
-        assertEquals(calculator.getXMasDiscount(Integer.parseInt(input)).getPrice(), Integer.parseInt(expected));
+        assertEquals(calculator.getXMasDiscount(Integer.parseInt(input)).getDiscountAmount(), Integer.parseInt(expected));
     }
 
     @DisplayName("스페셜 데이에 주문할 경우, 스페셜 데이 할인가 적용 (달력에 별이 붙은 경우)")
     @ParameterizedTest
     @ValueSource(ints = {3, 10, 17, 25})
     void getSpecialDiscount(int day) {
-        assertEquals(calculator.getSpecialDiscount(LocalDate.of(2023, 12, day)).getPrice(), -1000);
+        assertEquals(calculator.getSpecialDiscount(LocalDate.of(2023, 12, day)).getDiscountAmount(), -1000);
     }
 
     @DisplayName("할인 금액에 따른 Badge 출력")

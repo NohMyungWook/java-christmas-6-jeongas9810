@@ -6,18 +6,18 @@ import java.text.DecimalFormat;
 
 public class Benefit {
     private final EventType event;
-    private final int price;
+    private final int discountAmount;
 
-    public Benefit(EventType event, int price) {
+    public Benefit(EventType event, int discountAmount) {
         this.event = event;
-        this.price = price;
+        this.discountAmount = discountAmount;
     }
 
     public EventType getEventType() {
         return event;
     }
 
-    public int getPrice() {
-        return price;
+    public int getDiscountAmount() {
+        return discountAmount;
     }
 }
