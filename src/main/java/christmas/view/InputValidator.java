@@ -15,7 +15,7 @@ public class InputValidator {
     private static final int LAST_DAY = 31;
     private static final String BLANK = " ";
     private static final String SEPARATOR = "-";
-    private static final String REGEX_MENU_AND_COUNT = "^[가-힣]+-[0-9]+$";
+    private static final String REGEX_MENU_AND_COUNT = "^[a-zA-Z가-힣]+-[0-9]+$";
     private static final int KOR_NAME_IDX = 0;
     private static final int COUNT_IDX = 1;
     private static final String NONE = "none";

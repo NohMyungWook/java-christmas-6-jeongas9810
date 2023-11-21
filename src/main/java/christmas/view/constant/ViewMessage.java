@@ -22,7 +22,7 @@ public enum ViewMessage {
 
     // Common
     PRINT_MESSAGE("%s\n"),
-    PRINT_LINE("\n")
+    PRINT_LINE(System.lineSeparator())
     ;
 
     private final String message;

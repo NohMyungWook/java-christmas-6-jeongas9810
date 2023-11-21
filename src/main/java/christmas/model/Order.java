@@ -9,8 +9,9 @@ public record Order(LocalDate date, List<Receipt> receipts) {
 
     public int getMenuTypeCnt(MenuType menuType) {
         int cnt = 0;
+
         for (Receipt receipt : receipts) {
-            if (receipt.getMenu().menuType() == menuType) {
+            if (receipt.getMenuType() == menuType) {
                 cnt+= receipt.getCount();
             }
         }
